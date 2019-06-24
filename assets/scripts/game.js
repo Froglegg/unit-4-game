@@ -37,6 +37,7 @@ function parseNumber() {
         crystalNumberTotalDiv.html(crystalNumberTotal + crystalNumber);
         crystalNumberTotal = parseFloat($("#crystalNumberTotal").html());
         if (crystalNumberTotal > displayNumber) {
+            $(".crystalImage").css("pointer-events", "none");
             $(crystalNumberTotalDiv).css("color", "red");
             setTimeout(function() {
                 alert("Oh no! You went too high...");
@@ -45,6 +46,7 @@ function parseNumber() {
             wins = 0;
             $("#wins").html(wins);
         } else if (crystalNumberTotal == displayNumber) {
+            $(".crystalImage").css("pointer-events", "none");
             $(crystalNumberTotalDiv).css("color", "rgb(0, 175, 0)");
             setTimeout(function() {
                 alert("You did it! A perfect match...");
@@ -70,6 +72,7 @@ $("#crystalC").click(parseNumber);
 $("#crystalD").click(parseNumber);
 
 function reset() {
+    $(".crystalImage").css("pointer-events", "");
     crystalNumberTotal = 0;
     crystalNumberTotalDiv.html(0).css("color", "rgba(247, 111, 0, 0.945)");
     displayNumber = getRndInt(40, 100);
